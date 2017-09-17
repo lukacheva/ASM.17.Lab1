@@ -4,6 +4,7 @@ import os
 
 zoo = Zoo()
 
+
 def create_menu():
     menu = []
     menu.append(MenuItem(1, "Add animal", zoo.add_animal))
@@ -17,9 +18,11 @@ def create_menu():
     menu.append(MenuItem(0, "Exit", None))
     return menu
 
+
 def show_menu(menu):
     for item_menu in menu:
         print('{} - {}'.format(item_menu.id, item_menu.text))
+
 
 def cover_print(text):
     os.system('cls')
@@ -27,16 +30,17 @@ def cover_print(text):
     input()
     os.system('cls')
 
+
 def main():
     menu = create_menu()
     id_list = [item.id for item in menu]
-    while (True):
+    while True:
         show_menu(menu)
         try:
             selected_id = int(input())
-            if (selected_id not in id_list):
+            if selected_id not in id_list:
                 raise ValueError
-            if (selected_id == 0):
+            if selected_id == 0:
                 return
             os.system('cls')
             menu[selected_id - 1].func()

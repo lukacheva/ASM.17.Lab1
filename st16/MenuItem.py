@@ -1,10 +1,10 @@
 class MenuItem:
-    id: int
-    text: str
-    func: classmethod
+    id: int = None
+    text: str = None
+    func: classmethod = None
 
-    def __init__(self, _id, _text, _func):
-        self.id = _id
-        self.text = _text
-        self.func = _func
+    def __init__(self, id, text, func):
+        self.id = id
+        self.text = text
+        self.func = func
 
