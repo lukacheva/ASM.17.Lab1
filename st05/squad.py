@@ -2,6 +2,7 @@ from .mage import *
 import pickle
 
 class Squad:
+    FILENAME = "st05/file.pkl"
     spisok = []
     
     def __init__(self):
@@ -24,13 +25,13 @@ class Squad:
             self.spisok[i].write_c()
    
     def wrtf(self):
-        pickle_out = open("file","wb")
+        pickle_out = open(Squad.FILENAME,"wb")
         pickle.dump(self.spisok,pickle_out)
         pickle_out.close()
         print("Записано")
         
     def rff(self):
-        pickle_in = open("file","rb")
+        pickle_in = open(Squad.FILENAME,"rb")
         self.spisok = pickle.load(pickle_in)
         print("Считано")
 
