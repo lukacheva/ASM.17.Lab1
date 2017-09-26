@@ -1,5 +1,5 @@
-from Guests import *
-from Registered import *
+from .Guests import *
+from .Registered import *
 import pickle
 
 class Library:

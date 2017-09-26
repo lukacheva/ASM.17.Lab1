@@ -1,4 +1,4 @@
-from Library import *
+from .Library import *
 
 _library = Library()
 

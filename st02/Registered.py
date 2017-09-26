@@ -1,4 +1,4 @@
-from Guests import *
+from .Guests import *
 #import Guests
 
 class Registered(Guest):
