@@ -1,4 +1,4 @@
-from Model import MyClass
+from .Model import MyClass
 
 class SecondClass(MyClass):
     def __init__(self, surname = ' ', name= ' ', age= ' ', growth= ' ', weight= ' ',magazine= ' '):

@@ -1,5 +1,5 @@
-from Model import MyClass
-from SuperModel import SecondClass
+from .Model import MyClass
+from .SuperModel import SecondClass
 import pickle
 
 class ModelAgency:

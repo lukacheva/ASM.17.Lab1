@@ -1,4 +1,4 @@
-from ModelAgency import ModelAgency 
+from .ModelAgency import ModelAgency 
 
 agency=ModelAgency()
 menu = {"1":("Add model", agency.insertModel),
