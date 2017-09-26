@@ -33,12 +33,9 @@ class Library:
             print("Список пуст")
 
     def out_file(self):
-        if self.l:
-            with open('file.bat', 'rb') as f:
-                self.l = pickle.load(f)
+        with open('file.bat', 'rb') as f:
+            self.l = pickle.load(f)
             print("success")
-        else:
-            print("Список пуст")
 
     def clear_list(self):
         self.l = []
