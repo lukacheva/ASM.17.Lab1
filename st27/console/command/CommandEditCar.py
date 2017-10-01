@@ -13,7 +13,7 @@ class CommandEditCar(AbstractCommand):
         index = int(input('Enter the item number: '))
         car = self._car_showroom.get(index - 1)
 
-        if not isinstance(car, Car) and not isinstance(car, UsedCar):
+        if not isinstance(car, Car):
             raise RuntimeError('Unknown instance')
 
         if isinstance(car, Car):
