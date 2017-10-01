@@ -21,7 +21,7 @@ class BookShop():
 		print("\nThe assortment of the store includes " + str(len(self.__base)) + " books\n")
 		for i in range(len(self.__base)):
 			print(str(i + 1))
-			self.base[i].show_book()
+			self.__base[i].show_book()
 
 	def edit_book(self):
 		self.show_base()
@@ -48,7 +48,7 @@ class BookShop():
 			if (is_file(file_name)):
 				with open(str(file_name) + '.dat', 'rb') as f:
 					self.__base = pickle.load(f)
-					self.__base()
+					self.show_base()
 				break
 			else:
 				print('Error reading the file')

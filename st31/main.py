@@ -12,7 +12,7 @@ def main():
 		"write": ['Write to file', book_shop.write_file],
 		"read": ['Read from file', book_shop.read_file],
 		"clear": ['Clear the base', book_shop.clear_shop],
-		"menu": ['Show menu', show_menu],
+		"menu": ['Show menu'],
 		"exit": ['Exit']
 	}
 	show_menu(menu)
@@ -21,7 +21,10 @@ def main():
 		if str.lower(item) == "exit":
 			break
 		for i in menu:
-			if str.lower(i) == str.lower(item):
+			if ('menu' == str.lower(item)):
+				show_menu(menu)
+				break
+			elif str.lower(i) == str.lower(item):
 				menu[i][1]()
 
 

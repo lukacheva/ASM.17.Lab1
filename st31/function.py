@@ -1,4 +1,4 @@
-sdef is_float(value):
+def is_float(value):
 	try:
 		float(value)
 		return True
