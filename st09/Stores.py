@@ -1,5 +1,5 @@
-from Market import Market
-from Department import Department
+from .Market import Market
+from .Department import Department
 import pickle
 
 

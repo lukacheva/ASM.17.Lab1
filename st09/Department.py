@@ -1,4 +1,4 @@
-from Market import Market
+from .Market import Market
 
 
 class Department(Market):

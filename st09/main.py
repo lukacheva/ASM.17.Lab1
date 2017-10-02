@@ -1,4 +1,4 @@
-from Stores import Stores
+from .Stores import Stores
 
 stores = Stores()
 EXIT_CODE = "9"
