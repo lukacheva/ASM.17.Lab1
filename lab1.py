@@ -26,7 +26,7 @@ MENU = [
         ["[03] Антипов", st03.main.main],
         ["[05] Баганов", st05.main.main],
         ["[07] Белова", st07.main.main],
-		["[12] Вайланд", st23.main.main],
+        ["[12] Вайланд", st23.main.main],
         ["[23] Ишмаметьев", st23.lab1.main],
         ["[39] Тимошин", st39.main.main],
         ["[16] Гаврилов", st16.main.main],
