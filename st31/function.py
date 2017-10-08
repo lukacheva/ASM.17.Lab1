@@ -23,8 +23,7 @@ def is_file(value):
 
 
 def show_menu(menu):
-
 	print('Menu')
-	for i in menu:
-		print(i + ' - ' + menu[i][0])
-	print('\n')
+	for i, item in enumerate(menu):
+		print("{0} - {1}".format(item, menu[item][0]))
+	print()

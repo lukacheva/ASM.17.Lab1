@@ -1,13 +1,13 @@
-from .Book import Book
+from st31.Book import Book
 
 
 class Classbook(Book):
 	__subject = ''
-	__edit_menu = []
+	edit_menu = {}
 
 	def __init__(self):
-		m = ["subject", self.set_subject]
-		Book.__init__(self, m)
+		Book.__init__(self)
+		self.edit_menu["5"] = ["subject", self.set_subject]
 
 	def set_subject(self):
 		self.__subject = input('Enter the subject to be learned using the book\n')

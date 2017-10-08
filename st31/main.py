@@ -1,5 +1,5 @@
-from .BookShop import BookShop
-from .function import *
+from st31.BookShop import BookShop
+from st31.function import *
 
 
 def main():

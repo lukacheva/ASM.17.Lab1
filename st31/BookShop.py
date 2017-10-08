@@ -1,6 +1,6 @@
-from .Book import Book
-from .Classbook import Classbook
-from .function import *
+from st31.Book import Book
+from st31.Classbook import Classbook
+from st31.function import *
 import pickle
 
 
