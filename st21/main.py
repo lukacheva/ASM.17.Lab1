@@ -10,14 +10,16 @@ def main():
          "show":cp.show,
          "safe":cp.safe,
          "load":cp.load}
+    sm=show_menu()
     while(True):
-        sm=show_menu()
         if (str(sm)=="exit"):
                 break
         else:
-            for i in cpf:
-                if (str(i)==str(sm)):
-                    run_f_car_park(cpf[str(sm)])
+            try:
+                run_f_car_park(cpf[str(sm)])
+                sm=show_menu()
+            except:
+                sm=show_menu()
 
 if __name__ == "__main__":
     main()
