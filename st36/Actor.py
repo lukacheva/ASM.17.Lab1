@@ -45,12 +45,7 @@ class Actor:
             'What info do you want to change: \n%s'
             'Input one digit: ' % ''.join(self.edit_message)
         )
-
         try:
             self.editing_attributes[int(action_digit)]()
         except:
             print('Wrong input data')
-
-
-if __name__ == '__main__':
-    pass
