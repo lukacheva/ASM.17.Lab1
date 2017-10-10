@@ -1,8 +1,7 @@
-# .group import group
 from .Film import Film
 
 menu_actions = [
-    '[0 ] - Print film name\n',
+    '[0] - Print film name\n',
     '[1] - Edit film name\n',
     '[2] - Add new actor\n',
     '[3] - Edit actor\n',
@@ -31,15 +30,11 @@ def main():
     ]
 
     while True:
+        print('\nWhat action do you want to perform: \n%s' % ''.join(menu_actions))
         try:
-            action_digit = int(input(
-                '\nWhat info do you want to change: \n%s'
-                'Input one digit: ' % ''.join(menu_actions)
-            ))
-
+            action_digit = int(input('Input one digit: '))
             if action_digit == 9:
                 break
-
             actions[action_digit]()
         except:
             print('Wrong input data.')
