@@ -22,14 +22,14 @@ class Film:
         self.actors[new_actor.name] = new_actor
 
     def edit_actor(self):
-        print('Type name of actor you want to edit: ')
+        print('\nType name of actor you want to edit:\nAvailable actors:')
         for actor_name, actor_object in self.actors.items():
             print(actor_name)
         actor_name = input()
         self.actors[actor_name].edit_bio()
 
     def remove_actor(self):
-        print('Type name of actor you want to remove: ')
+        print('\nType name of actor you want to remove:\nAvailable actors:')
         for actor_name, actor_object in self.actors.items():
             print(actor_name)
         actor_name = input()
