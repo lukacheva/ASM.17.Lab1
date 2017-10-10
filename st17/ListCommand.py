@@ -14,7 +14,7 @@ def IsInt(value):
 
 def IsFile(value):
     try:
-        open("st17/"+value, 'rb')
+        open(value, 'rb')
         return True
     except FileNotFoundError:
         return False

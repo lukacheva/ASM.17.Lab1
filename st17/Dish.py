@@ -32,7 +32,7 @@ class Dish:
             if IsFloat(self.grams):
                 break
             else:
-                self.grams=input("Enter grams\n")
+                self.grams=input("Enter price\n")
 
     def AddDescription(self):
         self.description=input("Enter description\n")
