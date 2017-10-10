@@ -28,6 +28,7 @@ import st37.main
 import st41.main
 import st36.main
 import st21.main
+import st18.main
 #import st40.main
 
 #	добавить импорт своего модуля по шаблону 
@@ -61,9 +62,10 @@ MENU = [
 #	["[11] Бреткин", st11.lab1.main],
         ["[34] Попова", st34.main.main],
         ["[37] Смирнов", st37.main.main],
-	["[36] Синалицкий", st36.main.main],
-	["[41] Фраткин", st41.main.main],
+        ["[36] Синалицкий", st36.main.main],
+        ["[41] Фраткин", st41.main.main],
         ["[21] Зубарева", st21.main.main],
+        ["[18] Гуткина", st18.main.main],
 #	["[40] Федорова", st40.main.main],
 
 #		добавить пункт меню для вызова своей главной функции по шаблону:
