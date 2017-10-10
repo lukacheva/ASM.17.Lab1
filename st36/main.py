@@ -1,21 +1,21 @@
 from .Film import Film
 
-menu_actions = [
-    '[0] - Print film name\n',
-    '[1] - Edit film name\n',
-    '[2] - Add new actor\n',
-    '[3] - Edit actor\n',
-    '[4] - Remove actor\n',
-    '[5] - Print all actors\n',
-    '[6] - Remove all actors\n',
-    '[7] - Save actors to file\n',
-    '[8] - Load actors to file\n',
-    '[9] - Quit menu\n'
-]
-
 
 def main():
     new_blockbuster = Film()
+
+    menu_actions = [
+        '[0] - Print film name\n',
+        '[1] - Edit film name\n',
+        '[2] - Add new actor\n',
+        '[3] - Edit actor\n',
+        '[4] - Remove actor\n',
+        '[5] - Print all actors\n',
+        '[6] - Remove all actors\n',
+        '[7] - Save actors to file\n',
+        '[8] - Load actors to file\n',
+        '[9] - Quit menu\n'
+    ]
 
     actions = [
         new_blockbuster.print_film_name,
