@@ -1,4 +1,4 @@
-from classContainerFIle import classContainer
+from .classContainerFIle import classContainer
 #from .descendantClassFile import descendantClass
 #from .myClassFile import myClass
 #import pickle
