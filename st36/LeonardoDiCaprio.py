@@ -5,8 +5,8 @@ class LeonardoDiCaprio(Actor):
     def __init__(self):
         super().__init__()
         self.has_oscar = False
-        self.editing_attributes['4'] = self.enter_got_oscar
-        self.edit_message.append('[4] - got oscar\n')
+        self.editing_attributes.append(self.enter_got_oscar)
+        self.edit_message.append('[3] - give or oscar\n')
         self.printing_bio.append(self.print_has_oscar)
 
     def enter_got_oscar(self):
