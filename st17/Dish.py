@@ -19,41 +19,27 @@ class Dish:
         self.name=input("Enter name\n")
     
     def AddPrice(self):
-        self.price=input("Enter price\n")
-        while(True):
-            if IsFloat(self.price):
-                break
-            else:
-                self.price=input("Enter price\n")
+        self.price=WhileTest(IsFloat,self.price,"Enter price\n")
 
     def AddGrams(self):
-        self.grams=input("Enter grams\n")
-        while(True):
-            if IsFloat(self.grams):
-                break
-            else:
-                self.grams=input("Enter grams\n")
+        self.grams=WhileTest(IsFloat,self.grams,"Enter grams\n")
 
     def AddDescription(self):
         self.description=input("Enter description\n")
 
     def ShowDish(self):
-        print("\n0) name - "+self.name+"\n1) price - "+self.price+"\n2) grams - "+self.grams+"\n3) description - "+self.description)
+        print("""
+0) name - {0}
+1) price - {1}
+2) grams - {2}
+3) description - {3}""".format(self.name,self.price,self.grams,self.description))
 
     def EditDish(self):
         self.ShowDish()
-        i=input("\nEnter the parameter dish number for editing. To return enter -1.\n")
+        p=""
         while(True):
-            if IsInt(i):
+            i=WhileTest(IsInt,p,"\nEnter the parameter dish number for editing. To return enter -1.\n")
+            if (int(i)==-1):
                 break
-            else:
-                i=input("\nEnter the parameter dish number for editing. To return enter -1.\n")
-        while(int(i)!=-1):
             self.edit[int(i)]()
             self.ShowDish()
-            i=input("\nEnter the parameter dish number for editing. To return enter -1.\n")
-            while(True):
-                if IsInt(i):
-                    break
-                else:
-                    i=input("\nEnter the parameter dish number for editing. To return enter -1.\n")

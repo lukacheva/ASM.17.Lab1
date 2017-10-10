@@ -46,27 +46,20 @@ class Menu:
             with open("st17/"+nf,"rb") as f:
                 self.listdish=pickle.load(f)
             print("File downloaded")
+            self.ShowDishMenu()
         else:
             print("This file does not exist")
         
     def EditDishMenu(self):
         if (len(self.listdish)>0):
             self.ShowDishMenu()
-            i=input("\nEnter the parameter dish number for editing. To return enter -1.\n")
+            p=""
             while(True):
-                if IsInt(i):
+                i=WhileTest(IsInt,p,"\nEnter the dish id for editing. To return enter -1.\n")
+                if (int(i)==-1):
                     break
-                else:
-                    i=input("\nEnter the parameter dish number for editing. To return enter -1.\n")
-            while(i!=-1):
                 self.listdish[int(i)].EditDish()
                 self.ShowDishMenu()
-                i=input("\nEnter the parameter dish number for editing. To return enter -1.\n")
-                while(True):
-                    if IsInt(i):
-                        break
-                    else:
-                        i=input("\nEnter the parameter dish number for editing. To return enter -1.\n")
         else:
             print("The menu is empty")
             
