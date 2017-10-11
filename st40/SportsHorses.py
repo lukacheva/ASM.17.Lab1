@@ -2,18 +2,13 @@
 
 class SportsHorses(Horses):
 	
-	def __init__(self, name, age, color, breed, type_of_sport):
-		
-		self.input_data()
-		
-		self.type_of_sport = type_of_sport
-	
+	def __init__(self):
+			print("__init__ sport")
+			self.input_data()
 		
 	def input_data(self):
-	
-        self.type_of_sport = input('Введите вид спорта лошади: ');	
-			
+			Horses.input_data(self)
+			self.type_of_sport = input('Введите вид спорта лошади: ');
 		
 	def print_horse(self):
-
-		print(self.name, self.age, self.color, self.breed, self.type_of_sport,)
+			print(self.name, self.age, self.color, self.breed, self.type_of_sport,)
