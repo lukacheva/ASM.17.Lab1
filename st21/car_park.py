@@ -25,10 +25,9 @@ class car_park:
                 inp=input("Enter id for editing. To return to the menu enter 'back'.\n")
                 if (str(inp)=="back"):
                     break
-                else:
-                    if ((is_int(inp))and(int(inp)<len(self.park))):
-                        self.park[int(inp)].edit_car()
-                        self.show()
+                if ((is_int(inp))and(int(inp)<len(self.park))and(int(inp)>-1))):
+                    self.park[int(inp)].edit_car()
+                    self.show()
         else:
             print("The car park is empty")
 

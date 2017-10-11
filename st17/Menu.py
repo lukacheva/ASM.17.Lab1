@@ -58,8 +58,9 @@ class Menu:
                 i=WhileTest(IsInt,p,"\nEnter the dish id for editing. To return enter -1.\n")
                 if (int(i)==-1):
                     break
-                self.listdish[int(i)].EditDish()
-                self.ShowDishMenu()
+                if ((int(i)<len(self.listdish))and(int(i)>-1)):
+                    self.listdish[int(i)].EditDish()
+                    self.ShowDishMenu()
         else:
             print("The menu is empty")
             

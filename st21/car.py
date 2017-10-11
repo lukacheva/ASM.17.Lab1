@@ -30,23 +30,24 @@ class car:
         self.model=input("Enter model\n")
         
     def add_horsepower(self):
-        self.horsepower=input("Enter horsepower\n")
         while(True):
+            self.horsepower=input("Enter horsepower\n")
             if is_int(self.horsepower):
                 break
-            else:
-                self.horsepower=input("Enter horsepower\n")
 
     def add_mileage(self):
-        self.mileage=input("Enter mileage\n")
         while(True):
+            self.mileage=input("Enter mileage\n")
             if is_float(self.mileage):
                 break
-            else:
-                self.mileage=input("Enter mileage\n")
 
     def show_car(self):
-        print("\ngosnomer: "+self.gosnomer+"\nmark: "+self.mark+"\nmodel: "+self.model+"\nhorsepower: "+self.horsepower+"\nmileage: "+self.mileage)
+        print("""
+gosnomer: {0}
+mark: {1}
+model: {2}
+horsepower: {3}
+mileage: {4}""".format(self.gosnomer,self.mark,self.model,self.horsepower,self.mileage))
 
     def edit_car(self):
         self.show_car()
@@ -55,6 +56,7 @@ class car:
             if (str(inp)=="back"):
                 break
             else:
-                for i in self.edit:
-                    if (str(i)==str(inp)):
-                        self.edit[str(inp)]()
+                try:
+                    self.edit[str(inp)]()
+                except:
+                    inp=input("\nEnter the parameter for editing. To return enter 'back'.\n")
