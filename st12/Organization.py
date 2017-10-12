@@ -55,9 +55,9 @@ class Organization:
         print("\nСписок персонала успешно очищен!\n")
 
     def writeToFile(self):
-        pickle.dump(self.organization, open('data/storage.dat', 'wb'))
+        pickle.dump(self.organization, open('st12/data/storage.dat', 'wb'))
         print("\nЗапись в файл успешно выполнена!\n")
 
     def readFromFile(self):
-        self.organization=pickle.load(open('data/storage.dat', 'rb'))
+        self.organization=pickle.load(open('st12/data/storage.dat', 'rb'))
         print("\nЧтение из файла успешно выполнено!\n")
