@@ -22,7 +22,7 @@ import st33.main
 import st22.main
 import st09.main
 import st19.main
-#import st11.lab1
+import st11.lab1
 import st34.main
 import st37.main
 import st41.main
@@ -42,6 +42,7 @@ MENU = [
         ["[03] Антипов", st03.main.main],
         ["[05] Баганов", st05.main.main],
         ["[07] Белова", st07.main.main],
+        ["[11] Бреткин", st11.lab1.main],
         ["[12] Вайланд", st12.main.main],
         ["[20] Джамалов", st20.main.main],
         ["[23] Ишмаметьев", st23.lab1.main],
@@ -60,7 +61,6 @@ MENU = [
         ["[22] Иванов", st22.main.main],
         ["[09] Беркита", st09.main.main],
         ["[19] Гюлмамедов", st19.main.main],
-#	["[11] Бреткин", st11.lab1.main],
         ["[34] Попова", st34.main.main],
         ["[37] Смирнов", st37.main.main],
         ["[36] Синалицкий", st36.main.main],

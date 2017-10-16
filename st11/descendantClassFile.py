@@ -1,4 +1,4 @@
-from  myClassFile import myClass
+from  .myClassFile import myClass
 
 class descendantClass(myClass):
     def __init__(self):

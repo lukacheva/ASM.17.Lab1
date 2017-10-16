@@ -1,5 +1,5 @@
-from descendantClassFile import descendantClass
-from myClassFile import myClass
+from .descendantClassFile import descendantClass
+from .myClassFile import myClass
 import pickle
 
 
@@ -29,11 +29,11 @@ class classContainer:
             print(self.classList[i].name)
 
     def readListFromFile(self):
-        with open("1.txt", "rb") as file:
+        with open("st11/1.txt", "rb") as file:
             self.classList = pickle.load(file)
 
     def writeListInFile(self):
-        with open("1.txt", "wb") as file:
+        with open("st11/1.txt", "wb") as file:
             pickle.dump(self.classList, file)
 
     def clearList(self):
