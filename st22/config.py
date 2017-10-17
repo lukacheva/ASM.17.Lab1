@@ -1,4 +1,4 @@
-from st23.University import University
+from st22.University import University
 
 
 # Замена switch/case

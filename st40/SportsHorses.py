@@ -3,7 +3,7 @@
 class SportsHorses(Horses):
 	
 	def __init__(self):
-			print("__init__ sport")
+#			print("__init__ sport")
 			self.input_data()
 		
 	def input_data(self):

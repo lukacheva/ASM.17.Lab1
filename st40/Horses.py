@@ -1,6 +1,6 @@
 ﻿class Horses:
 
-	print("Horses: ")	
+#	print("Horses: ")	
 		
 	def __init__(self):
 		print("__init__")

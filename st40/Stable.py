@@ -1,12 +1,13 @@
 ﻿from .Horses import Horses
 from .SportsHorses import SportsHorses
 import pickle
-print("Stable")
+#print("Stable")
 
 class Stable:
 	all_horses=[]
 	def __init__(self):
-		print("__init__ Stable")
+		pass
+#		print("__init__ Stable")
 				
 	def new_horse(self):
 			print("Введите '1', чтобы создать лошадь или введите '2', чтобы создать спортивную лошадь: ")

@@ -1,4 +1,4 @@
-from st27.model.Car import Car
+from st26.model.Car import Car
 
 
 class UsedCar(Car):

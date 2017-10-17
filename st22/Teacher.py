@@ -1,4 +1,4 @@
-from st23.Student import Student
+from st22.Student import Student
 
 
 # Класс учителя, который вырос из студента

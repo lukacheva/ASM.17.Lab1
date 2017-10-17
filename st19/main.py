@@ -1,15 +1,15 @@
-from .part3 import *
+from .group import *
 
-aut = autopark()
+group = University()
 
-menu = {"1": ("Добавить информацию о машине", aut.add_car),
-        "2": ("Добавить полную информацию о машине", aut.add_fcar),
-        "3": ("Редактировать", aut.edit),
-        "4": ("Удалить", aut.dlt),
-        "5": ("Вывести список на экран", aut.show_data),
-        "6": ("Сохранить список в файл", aut.wrtf),
-        "7": ("Загрузить список из файла", aut.rff),
-        "8": ("Очистить список", aut.clear_data),
+menu = {"1": ("Добавить студента", group.add_person),
+        "2": ("Добавить нового студента", group.add_new_person),
+        "3": ("Редактировать", group.edit),
+        "4": ("Удалить", group.delete),
+        "5": ("Вывести список на экран", group.display_spisok),
+        "6": ("Сохранить список в файл", group.napisat),
+        "7": ("Загрузить список из файла", group.chtenie),
+        "8": ("Очистить список", group.clean_out),
         "9": ("Выход", "")}
 
 def main():

@@ -1,37 +1,29 @@
-import os
-__path__ = [os.path.dirname(os.path.abspath(__file__))]
-from .Office import Office
-from .functions import *
-office = Office()
-MENU = {"1": ['Add a department', office.Add_Department],
-		"2": ['Add an employee', office.Add_Employee],
-		"3": ['Edit Database', office.EditDB],
-		"4": ['Show Database', office.ShowDB],
-		"5": ['Save Database', office.SaveDB],
-		"6": ['Load Database', office.loadDB],
-		"7": ['Clear the Database', office.ClearDB],
-		"8": ['Exit']
-		}
+from .SportClub import SportClub 
 
-
+club=SportClub()
+menu = {"1":("Add sport", club.insertSportsman),
+        "2":("Add Champion", club.insertChampion),
+        "3":("Edit", club.edit),
+	"4":("Delete", club.delete),
+	"5":("Show club", club.showSportClub),
+	"6":("Read club from file", club.read_file),
+	"7":("Write club to file", club.write_file),
+	"8":("Clear", club.clean),
+	"9":("Exit", None)}
 def main():
-	show_menu(MENU)
-	while (True):
-		choice = input("Choose item from menu")
-		if is_int(choice):
-			if int(choice) == 8:
-				break
-			for i in MENU:
-				if (i==choice):
-					MENU[choice][1]()
-		else:
-			print("Choose smth!")
-
+    while True:
+        print('')
+        print('Menu:')
+        for k in range(1,10):
+            print(k,"-",menu[str(k)][0])
+        x = input()
+        if int(x)==9:
+            break
+        if int(x)>=1 and int(x)<9:
+            menu[x][1]()
+        else:
+            print('Error! Choose other number')
 
 if __name__ == "__main__":
-	main()
-
-
-
-
-
+    main()
+	    

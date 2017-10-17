@@ -1,23 +1,25 @@
-from .group import *
-
-group = University()
-
-menu = {"1": ("Добавить студента", group.add_person),
-        "2": ("Добавить нового студента", group.add_new_person),
-        "3": ("Редактировать", group.edit),
-        "4": ("Удалить", group.delete),
-        "5": ("Вывести список на экран", group.display_spisok),
-        "6": ("Сохранить список в файл", group.napisat),
-        "7": ("Загрузить список из файла", group.chtenie),
-        "8": ("Очистить список", group.clean_out),
-        "9": ("Выход", "")}
+from st20.car_park import car_park
+from st20.modul_show_run import *
 
 def main():
-    while True:
-        for key in menu:
-            print(key + " " + menu[key][0])
-            
-        user_input = input("")
-        if int(user_input) == 9:
-            break
-        menu[user_input][1]()
+    cp=car_park()
+    cpf={"add_car":cp.add_car,
+         "add_truck":cp.add_truck,
+         "edit":cp.edit,
+         "clear":cp.clear,
+         "show":cp.show,
+         "safe":cp.safe,
+         "load":cp.load}
+    sm=show_menu()
+    while(True):
+        if (str(sm)=="exit"):
+                break
+        else:
+            try:
+                run_f_car_park(cpf[str(sm)])
+                sm=show_menu()
+            except:
+                sm=show_menu()
+
+if __name__ == "__main__":
+    main()

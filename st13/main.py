@@ -1,70 +1,50 @@
-from .data_base import *
+from .Organization import *
+from .Menu import *
+import os
 
-def print_map():
-    for key, value in menu_map.items():
-        print(f"{key} - {value}")
+organization = Organization()
 
-def candidate():
-    candidate = Candidate()
-    data_base.add(candidate)
-    
-def exp_candidate():
-    exp_candidate = Exp_Candidate()
-    data_base.add(exp_candidate)
-    
-def edit():
-    identifier = int(input("Введите ID соискателя для редактирования: "))
-    data_base.edit(identifier)
-    
-def print_db():
-    print(data_base)
 
-def clear():
-    data_base.clear_list()
+def create_menu():
+    mainMenu = []
+    mainMenu.append(MenuItem(1, "Добавить сотрудника", organization.addPerson))
+    mainMenu.append(MenuItem(2, "Добавить руководителя", organization.addDirector))
+    mainMenu.append(MenuItem(3, "Изменить информацию о сотруднике", organization.updatePerson))
+    mainMenu.append(MenuItem(4, "Удалить сотрудника из списка", organization.deletePerson))
+    mainMenu.append(MenuItem(5, "Вывести список персонала", organization.showList))
+    mainMenu.append(MenuItem(6, "Сохранить список персонала в файл", organization.writeToFile))
+    mainMenu.append(MenuItem(7, "Загрузить список персонала из файла", organization.readFromFile))
+    mainMenu.append(MenuItem(8, "Очистить список", organization.clearList))
+    mainMenu.append(MenuItem(0, "Выйти", None))
+    return mainMenu
 
-def save():
-    data_base.save_to_file()
-    print("Список успешно сохранён в файл")
-    
-def load():
-    data_base.load_from_file()
-    print("Список успешно загружен из файла")
-    
+
+def show_menu(mainMenu):
+    for item in mainMenu:
+        print('{} -> {}'.format(item.id, item.label))
+
+	
 def main():
-    print_map()
+    mainMenu = create_menu()
+    id_list = [item.id for item in mainMenu]
     while True:
-        cmd = int(input("Введите команду: "))   
-        if cmd == 0:
-            break
-        else:
-          menu.get(cmd)()
-          
-menu_map = {
-        '1' : 'Добавить в список соискателя без опыта работы',
-        '2' : 'Добавить в список соискателя c опытом работы',
-        '3' : 'Редактировать выбранного соискателя',
-        '4' : 'Вывести список соискателей на экран',
-        '5' : 'Очистить список соискателей',
-        '6' : 'Сохранить список соискателей в файл',
-        '7' : 'Загрузить список соискателей из файла',
-        '8' : 'Вывести меню на экран',
-        '0' : 'Остановить программу'
-}
+        show_menu(mainMenu)
+        try:
+            selected_id = int(input())
+            if selected_id not in id_list:
+                raise ValueError
+            if selected_id == 0:
+                return
+            os.system('cls')
+            mainMenu[selected_id - 1].function()
+            print("\nНажмите Enter для возврата в меню...")
+            input()
+            os.system('cls')
+        except ValueError:
+            print("\nУказано не корректное значение\n")
+        except EOFError:
+            print("\nФайл со списком персонала пуст\n")
+			
 
-menu = {
-     1 :  candidate,
-     2 :  exp_candidate,
-     3 :  edit,
-     4 :  print_db,
-     5 :  clear,
-     6 :  save,
-     7 :  load,
-     8 :  print_map
-}
-
-data_base = Data_Base()
-    
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
-
-

@@ -1,6 +1,6 @@
 import pickle
 
-from st23.Teacher import Student, Teacher
+from st22.Teacher import Student, Teacher
 
 
 # Класс-контейнер университета

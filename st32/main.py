@@ -1,33 +1,37 @@
-from .RunJournal import RunJournal
+import os
+__path__ = [os.path.dirname(os.path.abspath(__file__))]
+from .Office import Office
+from .functions import *
+office = Office()
+MENU = {"1": ['Add a department', office.Add_Department],
+		"2": ['Add an employee', office.Add_Employee],
+		"3": ['Edit Database', office.EditDB],
+		"4": ['Show Database', office.ShowDB],
+		"5": ['Save Database', office.SaveDB],
+		"6": ['Load Database', office.loadDB],
+		"7": ['Clear the Database', office.ClearDB],
+		"8": ['Exit']
+		}
 
-journal = RunJournal()
-commands = [
-    ['Записать пробежку', journal.addARun],
-    ['Записать марафон', journal.addAMarathon],
-    ['Отредактировать запись', journal.editTheJournal],
-    ['Удалить запись', journal.deleteARun],
-    ['Вывести журнал на экран', journal.showTheJournal],
-    ['Записать журнал в файл', journal.writeToFile],
-    ['Прочитать журнал из файла', journal.readFromFile],
-    ['Очистить журнал', journal.clearTheJournal],
-    ['Выйти', None]
-]
 
 def main():
-    while True:
-        print('\nКоманды:')
-        for j in range(0,9):
-            print(j+1, ':', commands[j][0])
-        
-        k = int(input('Введите команду: '))
-        if k == 9:
-            break
-        elif k > 0 and k < 9:
-            print('')
-            commands[k-1][1]()
-        else:
-            print('ОШИБКА: Нет такой команды!')
-            
+	show_menu(MENU)
+	while (True):
+		choice = input("Choose item from menu")
+		if is_int(choice):
+			if int(choice) == 8:
+				break
+			for i in MENU:
+				if (i==choice):
+					MENU[choice][1]()
+		else:
+			print("Choose smth!")
+
+
 if __name__ == "__main__":
-    main()
-        
+	main()
+
+
+
+
+

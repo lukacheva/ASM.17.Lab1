@@ -1,7 +1,7 @@
 import pickle
-from st21.car import car
-from st21.truck import truck
-from st21.modul_show_run import *
+from st20.car import car
+from st20.truck import truck
+from st20.modul_show_run import *
 
 class car_park:
 

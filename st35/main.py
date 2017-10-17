@@ -1,90 +1,70 @@
-from .Container import *
-import codecs, sys, os
+from .data_base import *
 
-class App(UIFunc):	
-	''' Workhorse for the project.  '''
-	def __init__(self):
-		super().__init__()
-		self.project_title = u'Lab project 01'	
-		# Container instance
-		self.container = Container()
+def print_map():
+    for key, value in menu_map.items():
+        print(f"{key} - {value}")
 
-		# Description for quit method
-		setattr(App.interface_quit,self.p_desc_field,"Exit application");	
+def candidate():
+    candidate = Candidate()
+    data_base.add(candidate)
+    
+def exp_candidate():
+    exp_candidate = Exp_Candidate()
+    data_base.add(exp_candidate)
+    
+def edit():
+    identifier = int(input("Введите ID соискателя для редактирования: "))
+    data_base.edit(identifier)
+    
+def print_db():
+    print(data_base)
 
-		''' Collect invokable methods from all inheritors of UIFunc '''
-		''' Structure of data in functionsList : [ 0 = Class reference, 1 = method reference, 2 = Method description ] '''
-		self.functions = list()
-		for classRef in self.inheritors(UIFunc):
-			self.functions += classRef.get_functions(classRef)		
-		pass
-	
-	''' This method collects all direct and indirect inheritors of a given class'''		
-	''' Using klass, as "class" is a reserved keyword '''	
-	def inheritors(self,klass):		
-	    subclasses = set()
-	    work = [klass]
-	    while work:
-	        parent = work.pop()
-	        for child in parent.__subclasses__():
-	            if child not in subclasses:
-	                subclasses.add(child)
-	                work.append(child)
-	    return subclasses		
+def clear():
+    data_base.clear_list()
 
-	def interface_quit(self):
-		''' Function for leaving application '''
-		print("Leaveing application. BYE !")
-		#exit()
-		raise RuntimeError('Exit command issued')
-		pass
+def save():
+    data_base.save_to_file()
+    print("Список успешно сохранён в файл")
+    
+def load():
+    data_base.load_from_file()
+    print("Список успешно загружен из файла")
+    
+def main():
+    print_map()
+    while True:
+        cmd = int(input("Введите команду: "))   
+        if cmd == 0:
+            break
+        else:
+          menu.get(cmd)()
+          
+menu_map = {
+        '1' : 'Добавить в список соискателя без опыта работы',
+        '2' : 'Добавить в список соискателя c опытом работы',
+        '3' : 'Редактировать выбранного соискателя',
+        '4' : 'Вывести список соискателей на экран',
+        '5' : 'Очистить список соискателей',
+        '6' : 'Сохранить список соискателей в файл',
+        '7' : 'Загрузить список соискателей из файла',
+        '8' : 'Вывести меню на экран',
+        '0' : 'Остановить программу'
+}
 
-	def printFunctions(self, functionsList):		
-		''' Provides graphics menu retreived from all available UIFunc inheritors '''			
-		for idx, function in enumerate(functionsList): print('{0}. {1}'.format(idx+1,function[2]))
-		pass		
+menu = {
+     1 :  candidate,
+     2 :  exp_candidate,
+     3 :  edit,
+     4 :  print_db,
+     5 :  clear,
+     6 :  save,
+     7 :  load,
+     8 :  print_map
+}
 
-	
-	def cls(self):
-		''' Wait for user action and clear screen. Should be OS independent :) '''
-		input("Press enter to continue...")
-		os.system('cls' if os.name=='nt' else 'clear')			
-	
-
-	def mainLoop(self):
-		''' Provides list of available user actions, validates input and trigger 
-		    requested functions '''
-		command = None
-		while True:			
-			print(self.project_title)
-			self.printFunctions(self.functions)						
-			try:
-				command = int(input(u'Command: '))	
-				# Validate user input
-				# if command > 0 and command <= len(self.functions):
-				# Range doesn't include last element
-				if command in range(1, len(self.functions) + 1):					
-					# Call selected function
-					self.functions[command-1][1](self.container)
-					# Clear screen from previous functions					
-				else:					
-					print("Incorrect command selected")	
-					pass							
-				self.cls()	
-			except ValueError as e:
-				print('Please enter a number')
-				pass
-			except RuntimeError as e:
-				print(str(e))
-				break
-		pass
-
-				
-			
-
-def main() :
-	''' Creates instance of App and initiates input loop '''
-	App().mainLoop()
-
+data_base = Data_Base()
+    
 if __name__ == "__main__":
     main()
+
+

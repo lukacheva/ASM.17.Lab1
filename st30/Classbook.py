@@ -1,4 +1,4 @@
-from st31.Book import Book
+from st30.Book import Book
 
 
 class Classbook(Book):
